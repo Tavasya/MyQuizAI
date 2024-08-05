@@ -19,15 +19,16 @@ export async function POST(req: NextRequest){
         const selectedDocuments = docs.filter((doc) => doc.pageContent !== undefined);
         const texts = selectedDocuments.map((doc) => doc.pageContent);
     
-        const prompt = "given the text which is a summary of the document, generate a quiz based on the text. Return json only that contains a quizz object with fields: name, description and questions. The questions is an array of objects with fields: questionText, answers. The answers is an array of objects with fields: answerText, isCorrect."
+        const prompt = 
+        "given the text which is a summary of the document, generate a quiz based on the text. Return json only that contains a quizz object with fields: name, description and questions. The questionsis an array of objects with fields: questionText, answers. The answers is an array of objects with fields: answerText, is Correct."
         
-if(!process.env.OPEN_AI_KEY){
+if(!process.env.OPENAI_API_KEY){
     return NextResponse.json(
         {error: "OpenAI API key not provided"}, 
         {status: 500});
 }
         const model = new ChatOpenAI({
-            apiKey: process.env.OPEN_AI_KEY,
+            apiKey: process.env.OPENAI_API_KEY,
             modelName: "gpt-4-1106-preview"
         });
 

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import ProgressBar from "@/components/progressBar";
 import { ChevronLeft, X } from "lucide-react";
 import ResultCard from "./resultCard";
-import quizzSubmission from "./quizzSubmission"
 import QuizzSubmission from "./quizzSubmission";
 
 const questions = [

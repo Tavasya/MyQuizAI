@@ -4,6 +4,10 @@ import { ChatOpenAI } from '@langchain/openai';
 import { HumanMessage } from "@langchain/core/messages";
 
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
+import { JsonOutputFunctionsParser } from "langchain/output_parsers";
+
+import saveQuizz from "./saveToDb";
+
 
 export async function POST(req: NextRequest){
     const body = await req.formData();
@@ -44,8 +48,10 @@ if(!process.env.OPENAI_API_KEY){
         const result = await model.invoke([message]);
         console.log(result);
 
+        const { quizzId } = await saveQuizz(result.quizz);
+
         return NextResponse.json(
-            {message: "created successfully"}, 
+            {quizzId}, 
             {status: 200});
     }
     catch(e:any) {

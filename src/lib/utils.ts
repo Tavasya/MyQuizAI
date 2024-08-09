@@ -26,3 +26,5 @@ export function convertDateToString(date: Date): string {
   return formattedDate;
 }
 
+export const PRICE_ID: string = "price_1PlqCaDmPib76F4Ij25SgXhm"
+

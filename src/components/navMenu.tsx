@@ -50,11 +50,14 @@ import {
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
-
             </DropdownMenuItem>
+            
+
             <DropdownMenuItem>
+            <Link href = "/billing" className="flex flex-row">
               <CreditCard className="mr-2 h-4 w-4" />
               <span>Billing</span>
+            </Link>
 
             </DropdownMenuItem>
             <DropdownMenuItem>

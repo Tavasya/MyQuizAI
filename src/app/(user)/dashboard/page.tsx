@@ -6,6 +6,7 @@ import QuizzesTable, { Quizz } from "./quizzesTable";
 import getUserMetrics from "@/actions/getUserMetrics";
 import MetricCard from "./metricCard";
 import getHeatMapData from "@/app/actions/getHeatMapData";
+import SubmissionsHeatMap from "./heatMap";
 
 const Page = async () => {
     const session = await auth();
@@ -20,6 +21,9 @@ const Page = async () => {
     const userQuizzes: Quizz[] = await db.query.quizzes.findMany({
         where: eq(quizzes.userId, userId)
     });
+
+    console.log(userQuizzes);
+    console.log("User ID:", session);
 
     const userData = await getUserMetrics();
     const heatMapData = await getHeatMapData();
@@ -36,8 +40,16 @@ const Page = async () => {
             }
           </div>
 
+          
+
+            {
+            heatMapData  ? <SubmissionsHeatMap data={heatMapData.data}/> : null
+            }
+
           <QuizzesTable quizzes={userQuizzes} />
         </div>
+
+
       )
     }
     

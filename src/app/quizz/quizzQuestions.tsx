@@ -8,6 +8,7 @@ import QuizzSubmission from "./quizzSubmission";
 import { InferSelectModel } from "drizzle-orm";
 import { questionAnswers, questions as DbQuestions, quizzes } from "@/db/schema";
 import { useRouter } from "next/navigation";
+import { saveSubmission } from "../actions/saveSubmissions";
 
 type Answer = InferSelectModel<typeof questionAnswers>;
 type Question = InferSelectModel<typeof DbQuestions> & { answers: Answer[] };
@@ -51,12 +52,15 @@ export default function QuizzQuestions(props: Props) {
     }
   };
 
+
   const handleSubmit = async () => {
     try {
       const subId = await saveSubmission({ score }, props.quizz.id);
     } catch (e) {
       console.log(e);
     }
+
+    setSubmitted(true);
   };
 
   const handlePressPrev = () => {
@@ -133,9 +137,17 @@ export default function QuizzQuestions(props: Props) {
             )?.answerText || ""
           }
         />
-        <Button variant="neo" size="lg" onClick={handleNext}>
-          {!started ? "Start" : (currentQuestion === questions.length - 1) ? 'Submit' : "Next"}
-        </Button>
+        {
+          (currentQuestion === questions.length - 1) ? 
+          <Button variant="neo" size="lg" onClick={handleSubmit}>
+          Submit
+          </Button> : 
+          <Button variant="neo" size="lg" onClick={handleNext}>
+            {!started ? "Start" : "Next"}
+             </Button>
+        }
+
+
       </footer>
     </div>
   );

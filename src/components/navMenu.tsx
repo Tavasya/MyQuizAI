@@ -40,16 +40,21 @@ import {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
 
-          <Link href = "/dashboard" className="flex flex-row">
-              <DropdownMenuItem>
+          
+          <DropdownMenuItem>
+            <Link href = "/dashboard" className="flex flex-row">
                   <BarChartBig className="mr-2 h-4 w-4" />
                   <span>Dashboard</span>
-                </DropdownMenuItem>
-          </Link>
+            </Link>
+          </DropdownMenuItem>
+          
+
 
             <DropdownMenuItem>
-              <User className="mr-2 h-4 w-4" />
-              <span>Profile</span>
+            <Link href = "/quizz/new" className="flex flex-row">
+              <CreditCard className="mr-2 h-4 w-4" />
+              <span>New Quizz</span>
+            </Link>
             </DropdownMenuItem>
             
 
@@ -58,52 +63,11 @@ import {
               <CreditCard className="mr-2 h-4 w-4" />
               <span>Billing</span>
             </Link>
-
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-
             </DropdownMenuItem>
 
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
 
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>
-                <UserPlus className="mr-2 h-4 w-4" />
-                <span>Invite users</span>
-              </DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem>
-                    <Mail className="mr-2 h-4 w-4" />
-                    <span>Email</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <MessageSquare className="mr-2 h-4 w-4" />
-                    <span>Message</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <PlusCircle className="mr-2 h-4 w-4" />
-                    <span>More...</span>
-                  </DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
 
           </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <Github className="mr-2 h-4 w-4" />
-            <span>GitHub</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <LifeBuoy className="mr-2 h-4 w-4" />
-            <span>Support</span>
-          </DropdownMenuItem>
         </DropdownMenuContent>
       
     )

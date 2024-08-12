@@ -47,7 +47,7 @@ const QuizzSubmission = (props: Props) => {
                 <div className="flex flex-col items-center">
                     <p>Congratulations 🎉</p>
                     <div className="flex justify-center">
-                        <Image src = "/images/owl-smiling.png" alt="Smiling Owl Image" width = {400} height = {400} />
+                        <Image src = "/images/DALL_E_2024-08-11_17.16.09_-_A_minimalistic__cartoon-style_character_for_a_quiz_webpage_themed_around_AI._The_character_should_be_the_same_cute__cartoonish_robot_or_digital_brain_-removebg-preview.png" alt="Jumping robot" width = {400} height = {400} />
                     </div>
                     <span id = "rewardID"/>
                 </div>
